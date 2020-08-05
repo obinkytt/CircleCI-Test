@@ -33,10 +33,10 @@ all: install lint test
 all: install lint test
 
 validate-circleci:
-    .circleci config process .circleci/config.yml
+    circleci config process circleci/config.yml
 
 run-circleci-local:
-    .circleci local execute
+    circleci local execute
 
 lint2: # This line should already be there with regular pylint
     hadolint path/to/Dockerfile
