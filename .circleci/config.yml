@@ -31,7 +31,7 @@ jobs:
           name: install dependencies
           command: |
             python3 -m venv ~/.devops
-            .devops/bin/activate
+            devops/bin/activate
             pip install -r requirements.txt
       - save_cache:
           paths:
@@ -42,11 +42,11 @@ jobs:
       - run:
           name: run tests
           command: |
-            .devops/bin/activate
+            devops/bin/activate
             make test
       # run lints!
       - run:
           name: run lint
           command: |
-            .devops/bin/activate
+            devops/bin/activate
             make lint
