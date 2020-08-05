@@ -26,13 +26,6 @@ lint:
 	hadolint Dockerfile
 	# This is a linter for Python source code linter: https://www.pylint.org/
 	# This should be run from inside a virtualenv
-	
-all: install lint test
+	pylint --disable=R,C,W1203 app.py
 
 all: install lint test
-
-run-circleci-local:
-    circleci local execute
-
-lint2: # This line should already be there with regular pylint
-    hadolint path/to/Dockerfile
