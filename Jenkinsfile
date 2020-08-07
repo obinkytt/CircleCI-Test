@@ -3,8 +3,8 @@ pipeline {
      stages {
          stage('Build') {
              steps {
-                 sh 'echo "Hello World"'
-                 sh '''
+                 bat 'echo "Hello World"'
+                 bat '''
                      echo "Multiline shell steps works too"
                      ls -lah
                  '''
@@ -12,7 +12,7 @@ pipeline {
          }
          stage('Lint my.py') {
               steps {
-                  sh 'tidy -q -e *.html'
+                  bat 'tidy -q -e *.html'
               }
          }
          stage('Security Scan') {
@@ -23,7 +23,7 @@ pipeline {
          stage('Upload to AWS') {
               steps {
                   withAWS(region:'us-east-2',credentials:'aws-static') {
-                  sh 'echo "Uploading content with AWS creds"'
+                 bat 'echo "Uploading content with AWS creds"'
                       s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'index.html', bucket:'static-jenkins-pipeline')
                   }
               }
