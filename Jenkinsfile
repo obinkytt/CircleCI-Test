@@ -3,16 +3,12 @@ pipeline {
      stages {
          stage('Build') {
              steps {
-                 bat 'echo "Hello World"'
-                 bat '''
-                     echo "Multiline shell steps works too"
-                     ls -lah
-                 '''
+                 
              }
          }
          stage('Lint my.py') {
               steps {
-                  bat 'tidy -q -e *.html'
+                  bat 'tidy -q -e *.py'
               }
          }
          stage('Security Scan') {
