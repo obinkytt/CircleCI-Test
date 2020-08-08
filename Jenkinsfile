@@ -1,10 +1,9 @@
 pipeline {
-    agent none 
+    agent any
     stages {
-        stage('Build') { 
+        stage('Build') {
             steps {
-                sh 'python -m py_compile sources/add2vals.py sources/my.py' 
-                stash(name: 'compiled-results', includes: 'sources/*.py*') 
+                bat 'set'
             }
         }
     }
